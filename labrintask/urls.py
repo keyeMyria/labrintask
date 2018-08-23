@@ -16,7 +16,6 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from django.contrib.auth import views as auth_views
 from django.contrib.auth import logout
 from photo.views import home
 
@@ -28,7 +27,6 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('logout/', logout, name='logout'),
     path('register/', include('users.urls', namespace='users')),
-    # path('messages/', include('chat.urls')),
     path('photo/', include('photo.urls', namespace='photo')),
     path('', home, name='home')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

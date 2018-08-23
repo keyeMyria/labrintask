@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'channels',
     'users',
-    'photo',
+    'photo'
 ]
 
 MIDDLEWARE = [
@@ -82,6 +82,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'labrin',
+        'USER': 'postgres',
+        'PASSWORD': '12345',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    },
+    'comment': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'labrin_comment',
         'USER': 'postgres',
         'PASSWORD': '12345',
         'HOST': 'localhost',
@@ -135,11 +143,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # STATIC_ROOT = 'staticfiles'
 
-THUMBNAIL_ALIASES = {
-    '': {
-        'avatar': {'size': (200, 200), 'crop': True},
-    },
-}
+options = {'size': (200, 200), 'crop': True}
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media'
